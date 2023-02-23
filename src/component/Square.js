@@ -4,7 +4,9 @@ export default class Square extends Component {
     render() {
         return (
             <div>
-                <button className="Square"> {this.props.value} </button> 
+                <button className="Square" onClick= {() => {
+                    console.log('click me');
+                }}> {this.props.value} </button> 
             </div>
 
         )
