@@ -14,7 +14,6 @@
 
 .board-row {
     display: flex;
-    margin-bottom: 2px;
 }
 
 .Square {
@@ -22,6 +21,7 @@
     height: 100px;
     border-style: none;
     margin-right: 2px;
+    margin-bottom: 2px;
     background-color: white;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 50px;
