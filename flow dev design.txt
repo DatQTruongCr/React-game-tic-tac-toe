@@ -1,0 +1,8 @@
+react tutorial
+
+finish design layout
+feature/Interactive
++ vấn đề đặt ra ?
+  có 1 giá trị ban đầu - click vào thay đổi thành giá trị mới ?
+  làm sao hiển thị giá trị mới này.
+  When you call setState in a component, React automatically updates the child components inside of it too.
