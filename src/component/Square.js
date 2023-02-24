@@ -10,13 +10,13 @@ export default class Square extends Component {
 
     render() {
         return (
-            <div>
+            <>
                 <button className="Square"
                     onClick={() => {
                         console.log('click me');
-                        this.setState({value: 'X'})
-                    }}> {this.state.value} </button>
-            </div>
+                        this.props.onClick();
+                    }}> {this.props.value} </button>
+            </>
 
         )
     }
