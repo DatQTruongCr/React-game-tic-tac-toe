@@ -1,0 +1,2 @@
+tại sao chúng ta phải khởi tạo 1 mảng mới từ state.squares?
+bởi vì sau khi update giá trị mới sẽ chờ 1 khoản thời gian tới khi clock tick thì state.squares mới được cập nhật giá trị do đó nếu ta dùng 

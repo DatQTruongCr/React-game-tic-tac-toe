@@ -3,9 +3,7 @@ import React, { Component } from 'react'
 export default class Square extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            value: null,
-        };
+        this.state = {};
     }
 
     render() {
