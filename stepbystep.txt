@@ -1,0 +1,3 @@
+sau khi dùng this.setSate() method, state của component sẽ được cập nhật
+vì đưa vào kho chờ kiểm tra và render cho các component khác bởi 
+clock tick

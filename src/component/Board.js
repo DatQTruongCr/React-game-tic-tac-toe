@@ -1,55 +1,23 @@
 import React, { Component } from 'react'
 import Square from './Square'
 
-export default class Board
-    extends Component {
+export default class Board extends Component {
+    // eslint-disable-next-line no-useless-constructor
     constructor(props) {
         super(props);
-        this.state = {
-            squares: Array(9).fill(null)
-        };
-        this.turnBackArray = [];
-        this.checkPlayer = true;
-        this.checkBackStep = true;
-    }
-
-    turnPlay(array,indexShow,iconPlay) {
-        array[indexShow] = iconPlay;
-        this.checkPlayer = !this.checkPlayer;
-        this.checkBackStep = true;
-    }
-
-    handleClick(index) {
-        if (this.state.squares[index] === null) {
-            let newSquares = this.state.squares.slice();
-            this.turnBackArray = this.state.squares;
-            if (this.checkPlayer) {
-                this.turnPlay(newSquares,index,'X');
-            } else {
-                this.turnPlay(newSquares,index,'O');
-            }
-            this.setState({ squares: newSquares });
-        }
+        this.state = {};
     }
 
     renderSquare(i) {
         return (
             <div>
                 <Square
-                    value={this.state.squares[i]}
+                    value={this.props.value[i]}
                     onClick={() => {
-                        this.handleClick(i);
+                        this.props.onClick(i);
                     }} />
             </div>
         )
-    }
-
-    Turnback(array) {
-        if (this.checkBackStep) {
-            this.setState({ squares: array });
-            this.checkPlayer = !this.checkPlayer;
-            this.checkBackStep = !this.checkBackStep;
-        }
     }
 
     render() {
@@ -73,14 +41,8 @@ export default class Board
                         {this.renderSquare(7)}
                         {this.renderSquare(8)}
                     </div>
-                </div>
-
-                <button onClick={() => {
-                    this.Turnback(this.turnBackArray);
-                }}>Re-Step</button>
-
+                </div>  
             </>
         )
     }
-
 }
