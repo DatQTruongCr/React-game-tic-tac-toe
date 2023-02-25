@@ -5,6 +5,7 @@ export default class Board extends Component {
     // eslint-disable-next-line no-useless-constructor
     constructor(props) {
         super(props);
+        this.state = {};
     }
 
     renderSquare(i) {
@@ -40,12 +41,7 @@ export default class Board extends Component {
                         {this.renderSquare(7)}
                         {this.renderSquare(8)}
                     </div>
-                </div>
-
-                <button onClick={() => {
-                    this.Turnback(this.turnBackArray);
-                }}>Re-Step</button>
-
+                </div>  
             </>
         )
     }
