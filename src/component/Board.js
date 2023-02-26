@@ -23,6 +23,7 @@ export default class Board extends Component {
     render() {
         return (
             <>
+            
                 <div className='board-behind'>
                     <div className='board-row'>
                         {this.renderSquare(0)}
