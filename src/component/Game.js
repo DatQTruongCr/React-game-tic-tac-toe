@@ -29,43 +29,56 @@ export default class Game extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            squares: Array(9).fill(null)
+            // squares: Array(9).fill(null),
+            //issue after changes from squares to historyArray ?
+            //have many array we have know exacly curent aray for display.
+            historyArray: [{ squares: Array(9).fill(null) }]
         };
-        this.turnBackArray = [[this.state.squares]];
         this.xisNext = true;
     }
 
     handleClick(index) {
-        if ((this.state.squares[index] === null) && (!theWaysToWin(this.state.squares))) {
-            let newSquares = this.state.squares.slice();
+        const history = this.state.historyArray;
+        const currentArray = history[history.length - 1].squares;
+        if ((currentArray[index] === null) && (!theWaysToWin(currentArray))) {
+            let newSquares = currentArray.slice();
             newSquares[index] = this.xisNext ? 'X' : 'O';
             this.xisNext = !this.xisNext;
-            this.setState({ squares: newSquares });
+            this.setState({
+                historyArray: history.concat([{
+                    squares: newSquares
+                }])
+            });
         }
-    }
+    }   
 
     render() {
-        let winner = theWaysToWin(this.state.squares);
-        console.log(winner);
+        const history = this.state.historyArray;
+        const currentArray = history[history.length - 1].squares
+        let winner = theWaysToWin(currentArray);
         let status;
         if (winner) {
             // eslint-disable-next-line no-unused-vars
-            status = `winner:  ${winner}`;
+            status = `Winner  ${winner}`;
         } else {
             // eslint-disable-next-line no-unused-vars
-            status = `nexPlayer  ${this.xisNext ? 'X' : 'O'}`;
+            status = `Next player ${this.xisNext ? 'X' : 'O'}`;
         }
 
         return (
             <>
-                <Board
-                    value={this.state.squares}
-                    onClick={(i) => {
-                        this.handleClick(i)
-                    }}
-                />
-                <div>
-                    {status}
+                <div className='game-body'>
+                    <div className='show-notification'>
+                        {status}
+                    </div>
+                    <div className='board'>
+                        <Board
+                            value={currentArray}
+                            onClick={(i) => {
+                                this.handleClick(i)
+                            }}
+                        />
+                    </div>
                 </div>
             </>
         )

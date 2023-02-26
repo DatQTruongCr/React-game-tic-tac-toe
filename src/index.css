@@ -31,3 +31,12 @@
 .Square:hover {
     background-color: rgba(246, 255, 122, 0.856);
 }
+
+.show-notification {
+    font-family: 'Pacifico';
+    font-size: 40px;
+}
+
+.board {
+    margin-top: 20px;
+}
